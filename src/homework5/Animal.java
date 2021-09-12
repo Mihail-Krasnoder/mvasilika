@@ -15,6 +15,6 @@ public class Animal {
         System.out.println("Voice!");
     }
     public String takeHome(){
-        return "* Leads his blind master home *";
+        return "* Leads his blind master home *.";
     }
 }

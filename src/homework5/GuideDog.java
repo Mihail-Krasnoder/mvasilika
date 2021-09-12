@@ -13,6 +13,6 @@ public class GuideDog extends Training{
     }
     @Override
     public void voice() {
-        System.out.println("Hello, my name is " + name + "." + " Woof." + " I can take you home.");
+        System.out.println("Hello, my name is " + name + "." + " Woof." + takeHome());
     }
 }
