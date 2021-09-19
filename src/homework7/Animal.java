@@ -1,6 +1,6 @@
 package homework7;
 
-public class Animal {
+public abstract class Animal {
     int id;
     int age;
     double weight;
