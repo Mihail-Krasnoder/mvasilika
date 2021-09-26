@@ -6,7 +6,7 @@ public class TestStringCollectionImpl {
     }
 
     private static void checkOperations() {
-        // Check create collection
+        // Check create collections
         StringCollectionImpl c = new StringCollectionImpl();
         assert (c.size() == 0);
 
