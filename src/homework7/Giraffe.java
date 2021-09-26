@@ -1,6 +1,6 @@
 package homework7;
 
-public class Giraffe extends WildAnimal {
+public class Giraffe extends WildAnimal implements Voice{
 
     Giraffe(int id, int age, double weight, String color, boolean isPredator) {
         super(id, age, weight, color, isPredator);

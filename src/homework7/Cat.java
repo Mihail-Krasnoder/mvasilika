@@ -1,6 +1,6 @@
 package homework7;
 
-public class Cat extends Pet {
+public class Cat extends Pet implements Voice{
 
     Cat(int id, int age, double weight, String color, String name, boolean isVaccinated) {
         super(id, age, weight, color, name, isVaccinated);

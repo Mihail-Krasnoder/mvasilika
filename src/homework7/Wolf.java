@@ -1,6 +1,6 @@
 package homework7;
 
-public class Wolf extends WildAnimal {
+public class Wolf extends WildAnimal implements Voice{
 
     Wolf(int id, int age, double weight, String color, boolean isPredator) {
         super(id, age, weight, color, isPredator);

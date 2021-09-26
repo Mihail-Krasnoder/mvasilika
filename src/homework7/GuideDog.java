@@ -1,6 +1,6 @@
 package homework7;
 
-public class GuideDog extends Training {
+public class GuideDog extends Training implements Voice, TakeHome{
 
     GuideDog(int id, int age, double weight, String color, String name, boolean isVaccinated, boolean isTrained) {
         super(id, age, weight, color, name, isVaccinated, isTrained);

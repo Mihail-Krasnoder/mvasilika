@@ -1,6 +1,6 @@
 package homework7;
 
-public class Fish extends Pet {
+public class Fish extends Pet implements Voice{
     Fish(int id, int age, double weight, String color, String name, boolean isVaccinated) {
         super(id, age, weight, color, name, isVaccinated);
     }

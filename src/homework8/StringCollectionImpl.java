@@ -1,5 +1,7 @@
 package homework8;
 
+import java.util.Arrays;
+
 public class StringCollectionImpl implements StringCollection{
     private String[] arr = new String[0];
     @Override
@@ -34,11 +36,6 @@ public class StringCollectionImpl implements StringCollection{
     }
 
     @Override
-    public boolean equals(StringCollection collection) {
-        return false;
-    }
-
-    @Override
     public boolean clear() {
         return false;
     }
@@ -46,5 +43,18 @@ public class StringCollectionImpl implements StringCollection{
     @Override
     public int size() {
         return 0;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        StringCollectionImpl that = (StringCollectionImpl) o;
+        return Arrays.equals(arr, that.arr);
+    }
+
+    @Override
+    public int hashCode() {
+        return Arrays.hashCode(arr);
     }
 }
