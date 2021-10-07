@@ -1,7 +1,5 @@
 package homework9;
 
-import java.util.Collection;
-
 public interface CustomCollection {
     boolean add(String str);
 

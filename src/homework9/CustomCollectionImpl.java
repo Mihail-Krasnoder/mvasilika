@@ -1,12 +1,10 @@
 package homework9;
 
-import java.util.Collection;
-
 public class CustomCollectionImpl implements CustomCollection {
     private Node head;
     private int size = 0;
 
-    static class Node {
+    private static class Node {
         private final String value;
         private Node next;
 
