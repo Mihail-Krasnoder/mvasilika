@@ -14,8 +14,7 @@ public class LoginUtil {
     }
     static boolean isUserAuthentic(String login, String password, String confirmPassword) {
         try {
-            if (password != null||!password.equals(confirmPassword)) throw new WrongPasswordException();
-            assert login != null;
+            if (password != null||login != null||!password.equals(confirmPassword)) throw new WrongPasswordException();
             isLoginValid(login);
             isPasswordValid(password);
         } catch (WrongLoginException | WrongPasswordException exception) {
