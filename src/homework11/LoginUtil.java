@@ -1,9 +1,7 @@
 package homework11;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 public class LoginUtil {
     private static Map<String, String> loginData = new HashMap<>();
@@ -15,38 +13,32 @@ public class LoginUtil {
         loginData.put("login5_", "password5_");
     }
     static boolean isUserAuthentic(String login, String password, String confirmPassword) {
-        isLoginValid(login);
-        isPasswordValid(password, confirmPassword);
-            try {
-                Set<String> keys = loginData.keySet();
-                ArrayList<String> values = new ArrayList<>(loginData.values());
-                for (String a : values) {
-                    password.equals(a);
-                    for (String b : keys) {
-                        login.equals(b);
-                        if (password == a && login == b) {
-                            return true;
-                        }
-                    }
-                }
-            }
-            catch (RuntimeException e) {
-                System.out.println("Пароль или логин введен неверно!");
-            }
+        try {
+            assert password != null;
+            if (!password.equals(confirmPassword)) throw new WrongPasswordException();
+            assert login != null;
+            isLoginValid(login);
+            isPasswordValid(password);
+        } catch (WrongLoginException | WrongPasswordException exception) {
             return false;
+        }
+        return true;
     }
 
 
-    private static void isPasswordValid(String password,String confirmPassword){
-        boolean onlyLatinAlphabet = password.matches("^[a-zA-Z][a-zA-Z\\s]+[0-9]+[\\w]");
-        if(!onlyLatinAlphabet||password.length()>20|| !password.equals(confirmPassword)){
-            throw new RuntimeException("WrongPasswordException");
+
+    private static void isLoginValid(String login) throws WrongLoginException {
+        if (!(login.length() > 0 && login.length() < 20)
+                || !login.matches("^[a-zA-Z0-9|_]+$")
+                || !loginData.containsKey(login)) {
+            throw new WrongLoginException("Login is incorrect");
         }
     }
-    private static void isLoginValid(String login){
-        boolean onlyLatinAlphabet = login.matches("^[a-zA-Z][a-zA-Z\\s]+[0-9]+[\\w]");
-        if(!onlyLatinAlphabet||login.length()>20){
-            throw new RuntimeException("WrongLoginException");
+
+    private static void isPasswordValid(String password) throws WrongPasswordException {
+        if (!(password.length() < 20) || (!password.matches("^[a-zA-Z0-9|_]+$"))
+        ) {
+            throw new WrongPasswordException("Password is incorrect");
         }
     }
 }
